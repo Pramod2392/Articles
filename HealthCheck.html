@@ -1,0 +1,24 @@
+<h1>Health checks in ASP.NET core</h1>
+
+<h2>In this article we will understand about health of a web application, why we need them and how to implement them in asp.net core web application</h2>
+
+<p>A web application or a web api generally uses database for persistence. The database operations involving complex queries take more time to complete.
+    It is common to use caching mechanism like redis to save frequently used data and retrieve it from redis to improve performance of the application. 
+    Most of the applications are moving towards micro-service architecture, it is common for a web application to depend on other micro-services for some data.
+    Applications have started using cloud components and services extensively so it is usual for a web application to depend on azure services and components.</p>
+
+    <p>As shown in the below diagram, application uses or depends on many external components</p>
+
+    <div style="vertical-align: middle; padding-left: 20%;">
+        <img src="./Images/HealthCheck/ApplicationDependency.png">
+    </div>
+    
+<h3>When do we say that an application is healthy?</h3>
+
+<p>Application being up and running is not sufficient to say that an application is healthy. 
+    For the application to perform all its operations, it should be able to access all its external resources. 
+    So for the application to be called as healthy, all its external dependencies should be up and running and should be accessible to the application.</p>
+
+<h4> What do we mean by health checks for an application</h4>
+
+<p>Health checks involve checking whether the application is up and running and also whether all its external dependencies are up and running and they are accessible</p>
