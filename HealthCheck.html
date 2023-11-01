@@ -24,3 +24,60 @@
 </p>
 
 <h4> Health checks in ASP.NET core</h4>
+
+<p>ASP.NET core offers Health checks middleware and various libraries for checking health of different resources.
+    The first step in checking whether the app is healthy is to check if the app is up and running. It is also called <i>liveness</i> check.
+    It is effortless to add a liveness check for an asp.net core application. It just involves two steps
+ </p>
+
+ <p>Let's add a liveness check for an asp.net core web api application.
+    <ol>
+        <li>
+            Create an asp.net core web api application.
+            <p>
+                <ul>
+                    <li style="padding-bottom: 1%;">Open a new terminal in visual studio code</li>
+                    <img style="padding-bottom: 1%;" width="700" height="250" src="./Images/HealthCheck/NewTerminal.png">
+                    <li style="padding-bottom: 1%;">Navigate to the desired directory.</li>                    
+                    <li style="padding-bottom: 1%;">Run the command "<i><b>dotnet new webapi</b></i>" to create the web api application</li>
+                    <img style="padding-bottom: 1%;" width="600" height="200" src="./Images/HealthCheck/CreateWebAPI_App.png">
+                </ul>
+            </p>
+        </li>
+        <li>
+            Register health check service. Add the below highlighted line of code to Program.cs file
+            <p>
+                <img style="padding-bottom: 1%;" width="600" height="300" src="./Images/HealthCheck/RegisterHealthCheck.png">
+            </p>
+        </li>
+        <li>
+            Create a health check end point. Add the below highlighted line of code to Program.cs file
+            <p>
+                <img style="padding-bottom: 1%;" width="500" height="300" src="./Images/HealthCheck/MapHealthCheck.png"> 
+            </p>
+        </li>
+        <li>
+            Build the code using the command "<i><b>dotnet build</b></i>"
+            <p>
+                <img style="padding-bottom: 1%;" width="600" height="200" src="./Images/HealthCheck/dotnetbuild.png"> 
+            </p>
+        </li>
+        <li>
+            Run the code using the command "<i><b>dotnet run</b></i>". The application URL where the application is listening will be displayed in the log as shown below.
+            <p>
+                <img style="padding-bottom: 1%;" width="600" height="200" src="./Images/HealthCheck/dotnetrun.png"> 
+            </p>
+        </li>
+        <li>
+            Launch the browser and navigate to the health check end point
+            <p>
+                <img style="padding-bottom: 1%;" width="600" height="200" src="./Images/HealthCheck/HealthCheckEndPoint.png"> 
+            </p>
+        </li>
+    </ol>
+    <p>
+        The health check end point returned "Healthy" saying that the application is up and running and ready to take up requests.        
+        In this article we have discussed about helath check of the application. We have seen how easy it is to implement 
+        liveness check for an asp.net core web application. 
+    </p>
+ </p>
