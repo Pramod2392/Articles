@@ -16,10 +16,10 @@
             <p>
                 <ul>
                     <li style="padding-bottom: 1%;">Open a new terminal in visual studio code</li>
-                    <img style="padding-bottom: 1%;" width="600" height="250" src="./Images/HealthCheck/NewTerminal.png">
+                    <img style="padding-bottom: 1%;" width="850" height="300" src="./Images/HealthCheck/NewTerminal.png">
                     <li style="padding-bottom: 1%;">Navigate to the desired directory.</li>                    
                     <li style="padding-bottom: 1%;">Run the command "<i><b>dotnet new webapi</b></i>" to create the web api application</li>
-                    <img style="padding-bottom: 1%;" width="500" height="200" src="./Images/HealthCheck/CreateWebAPI_App.png">
+                    <img style="padding-bottom: 1%;" width="800" height="300" src="./Images/HealthCheck/CreateWebAPI_App.png">
                 </ul>
             </p>
         </li>
@@ -28,15 +28,15 @@
             <p>
                 <ul>
                     <li style="padding-bottom: 1%;"> Create a SQL server and a database under that in azure</li>
-                    <img style="padding-bottom: 1%;" width="500" height="270" src="./Images/HealthCheck/SQLHealthCheck/AzureSQLDB.png">
+                    <img style="padding-bottom: 1%;" width="700" height="350" src="./Images/HealthCheck/SQLHealthCheck/AzureSQLDB.png">
 
                     <li style="padding-bottom: 1%;">Create a new table "Employee" in azure SQL database using the below query
                         <p><i><b>"Create TABLE Employee (Id int PRIMARY KEY IDENTITY(1,1), FirstName nvarchar(50), LastName nvarchar(50))"</b></i></p>
                     </li>
-                    <img style="padding-bottom: 1%;" width="600" height="200" src="./Images/HealthCheck/SQLHealthCheck/EmployeeTableDesign.png">
+                    <img style="padding-bottom: 1%;" width="800" height="250" src="./Images/HealthCheck/SQLHealthCheck/EmployeeTableDesign.png">
 
                     <li style="padding-bottom: 1%;">Copy the connection string of the database from the azure portal</li>
-                    <img style="padding-bottom: 1%;" width="500" height="350" src="./Images/HealthCheck/SQLHealthCheck/SQLDBConnectionString.png">
+                    <img style="padding-bottom: 1%;" width="800" height="500" src="./Images/HealthCheck/SQLHealthCheck/SQLDBConnectionString.png">
                 </ul>
             </p>
         </li>
@@ -45,10 +45,10 @@
             <p>
                 <ul>
                     <li style="padding-bottom: 1%;">Add a new folder named "Models" under the parent directory and add a new file named Employee.cs within the Models folder as shown below</li>
-                    <img style="padding-bottom: 1%;" width="400" height="150" src="./Images/HealthCheck/SQLHealthCheck/AddEmployeeFile.png">
+                    <img style="padding-bottom: 1%;" width="600" height="200" src="./Images/HealthCheck/SQLHealthCheck/AddEmployeeFile.png">
 
                     <li>Create an Employee class with first name and last name properties as shown below</li>
-                    <img style="padding-bottom: 1%;" width="400" height="250" src="./Images/HealthCheck/SQLHealthCheck/AddPropertiesToEmployeeClass.png">
+                    <img style="padding-bottom: 1%;" width="700" height="400" src="./Images/HealthCheck/SQLHealthCheck/AddPropertiesToEmployeeClass.png">
                 </ul>
             </p>
         </li>
@@ -57,16 +57,26 @@
             <p>
                 <ul>
                     <li style="padding-bottom: 1%;">Create a new file within the Controller folder and name it as "DataController.cs" as shown below.</li>
-                    <img style="padding-bottom: 1%;" width="300" height="300" src="./Images/HealthCheck/SQLHealthCheck/CreateDataController.png">
+                    <img style="padding-bottom: 1%;" width="500" height="500" src="./Images/HealthCheck/SQLHealthCheck/CreateDataController.png">
 
                     <li style="padding-bottom: 1%;">Add a new class named DataController within the DataController.cs file within the namespace. Add the using statement as shown below </li>
-                    <img style="padding-bottom: 1%;" width="400" height="250" src="./Images/HealthCheck/SQLHealthCheck/InitialCode.png">                    
+                    <img style="padding-bottom: 1%;" width="600" height="350" src="./Images/HealthCheck/SQLHealthCheck/InitialCode.png">                    
                                         
                     <li style="padding-bottom: 1%;">Add a new api named "AddEmployee" which accepts an input parameter of type Employee class. Add "HttpPost", Route attribute as shown below </li>
                     <img style="padding-bottom: 1%;" width="600" height="250" src="./Images/HealthCheck/SQLHealthCheck/APITemplate.png">
 
                     <li style="padding-bottom: 1%;">Add code implementation to add new employee to sql employee database table. Install required nuget packages</li>
                     <img style="padding-bottom: 1%;" width="900" height="900" src="./Images/HealthCheck/SQLHealthCheck/CodeImplementation.png">
+
+                    <li>Install below nuget packages</li>
+                    <p>
+                        <ul>
+                            <li>Azure.Identity - For authentication and authorization to azure resources</li>
+                            <li>System.Data.SQLClient - For SQL DB related operations</li>
+                            <li>Azure.Security.KeyVault.Secrets - For interacting with KeyVault</li>
+
+                        </ul>                        
+                    </p>
                 </ul>                
             </p>
         </li>
@@ -75,13 +85,13 @@
             <p>
                 <ul>
                     <li style="padding-bottom: 1%;">Launch the swagger URL</li>
-                    <img style="padding-bottom: 1%;" width="500" height="250" src="./Images/HealthCheck/SQLHealthCheck/SwaggerPage.png">
+                    <img style="padding-bottom: 1%;" width="700" height="350" src="./Images/HealthCheck/SQLHealthCheck/SwaggerPage.png">
 
                     <li style="padding-bottom: 1%;">Give first name and last name and click on submit. New Employee will be added to employee table </li>
-                    <img style="padding-bottom: 1%;" width="600" height="350" src="./Images/HealthCheck/SQLHealthCheck/APIResponse.png">
+                    <img style="padding-bottom: 1%;" width="900" height="450" src="./Images/HealthCheck/SQLHealthCheck/APIResponse.png">
 
                     <li style="padding-bottom: 1%;">Employee details in the employee table</li>
-                    <img style="padding-bottom: 1%;" width="600" height="250" src="./Images/HealthCheck/SQLHealthCheck/EmployeeDataInDB.png">
+                    <img style="padding-bottom: 1%;" width="700" height="450" src="./Images/HealthCheck/SQLHealthCheck/EmployeeDataInDB.png">
                 </ul>
             </p>
         </li>
@@ -92,28 +102,41 @@
     </p>
 
     <ol>
-        <li>We have a package "AspNetCore.HealthChecks.SqlServer" available to check the health of SQL server DB. Install the package</li>
-        <img style="padding-bottom: 1%;" width="600" height="350" src="./Images/HealthCheck/SQLHealthCheck/SQLDBHealthCheckPackage.png">
+        <li>We have a package "AspNetCore.HealthChecks.SqlServer" available to check the health of SQL server DB. 
+            <p>Install the package using the command <i><b>dotnet add package AspNetCore.HealthChecks.SqlServer</b></i></li></p>
+        <img style="padding-bottom: 1%;" width="800" height="450" src="./Images/HealthCheck/SQLHealthCheck/SQLDBHealthCheckPackage.png">
 
-        <li>Fetch the SQL DB connection string in the Program.cs file as shown below</li>
-        <img style="padding-bottom: 1%;" width="600" height="250" src="./Images/HealthCheck/SQLHealthCheck/FetchSQLDBConnectionString.png">
+        <li>I am using azure keyvault to save the secrets. The secret identifiers are configured in appsettings file</li>
 
-        <li>Add SQL server health check using the "AddSqlServer" extension method as shown below </li>
-        <img style="padding-bottom: 1%;" width="700" height="170" src="./Images/HealthCheck/SQLHealthCheck/AddSQLServerHealthCheck.png">
+        <li style="padding-bottom: 1%;">Fetch the SQL DB connection string in the Program.cs file as shown below</li>
+        <img style="padding-bottom: 1%;" width="950" height="350" src="./Images/HealthCheck/SQLHealthCheck/FetchSQLDBConnectionString.png">
+
+        <li style="padding-bottom: 1%;">Add SQL server health check using the "AddSqlServer" extension method as shown below. Passing the previously fetched connection string as input parameter </li>
+        <img width="950" height="270" src="./Images/HealthCheck/SQLHealthCheck/AddSQLServerHealthCheck.png">
 
         <li>Add a health check endpoint in the Program.cs file</li>
-        <img style="padding-bottom: 1%;" width="600" height="350" src="./Images/HealthCheck/SQLHealthCheck/MapHealthCheck.png">
+        <img style="padding-bottom: 1%;" width="800" height="600" src="./Images/HealthCheck/SQLHealthCheck/MapHealthCheck.png">
 
-        <li> Run the application and navigate to "healthz" endpoint</li>
-        <img style="padding-bottom: 1%;" width="400" height="150" src="./Images/HealthCheck/SQLHealthCheck/HealthCheckResult.png">
-    </ol>
+        <li style="padding-bottom: 1%;"> Run the application and navigate to "healthz" endpoint</li>
+        <img style="padding-bottom: 1%;" width="600" height="250" src="./Images/HealthCheck/SQLHealthCheck/HealthCheckResult.png">
 
-    <p>I am running the application locally and I am using Azure SQL DB. So to be able to connnect to azure SQL DB from local, I need to add a firewall rule to allow my client IP as shown below.
-        Let's verify the unhealthy scenario by removing the firewall rule or we can also verify by giving the wrong connection string </p>
-    <img style="padding-bottom: 1%;" width="600" height="250" src="./Images/HealthCheck/SQLHealthCheck/NetworkFirewallRule.png">
+        <li style="padding-bottom: 1%;">I am running the application locally and I am using Azure SQL DB. So to be able to connnect to azure SQL DB from local, I need to add a firewall rule to allow my client IP as shown below.
+            Let's verify the unhealthy scenario by removing the firewall rule or we can also verify by giving the wrong connection string</li>
+        <img style="padding-bottom: 1%;" width="1000" height="450" src="./Images/HealthCheck/SQLHealthCheck/NetworkFirewallRule.png">
 
-    <li> Run the application and navigate to "healthz" endpoint</li>
-        <img style="padding-bottom: 1%;" width="400" height="150" src="./Images/HealthCheck/SQLHealthCheck/HealthCheckNegativeResult.png">
+        <li><p style="padding-bottom: 1%;"> Run the application and navigate to "healthz" endpoint</p></li>
+        <img style="padding-bottom: 1%;" width="650" height="250" src="./Images/HealthCheck/SQLHealthCheck/HealthCheckNegativeResult.png">
+    </ol>    
+
+    <p>
+        In this article we have learnt about adding health check for SQL DB in .NET core application. Let me know your thoughts in the comments. <br>
+        The github repo link for the code changes made in this article is <a href="https://github.com/Pramod2392/SQLHealthCheck">here</a> <br>        
+
+    </p>
+    
+
+    
+    
 
 
     
