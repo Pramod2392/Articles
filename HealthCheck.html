@@ -1,99 +1,134 @@
-<style>
-    p {
-        font-family: Arial, Helvetica, sans-serif;
-    }
-    h2 {
-        font-family: Arial, Helvetica, sans-serif;
-    }
-    h4 {
-        font-family: Arial, Helvetica, sans-serif;
-    }
-    li {
-        font-family: Arial, Helvetica, sans-serif;
-    }
-</style>
+<html>
 
-<h2 style="padding-left: 35%;">Health checks in ASP.NET core</h2>
+<head>
 
-<p>In this article we will understand about the health of a web application. Then we will learn about health checks for a web application and also why we need them and how to implement them in asp.net core web application</p>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<p>A web application or a web api generally uses database for persistence. The database operations involving complex queries take more time to complete.
-    It is common to use caching mechanism to improve performance of the application. 
-    Most of the applications are moving towards micro-service architecture, it is often the case for an application to depend on other application or a service.
-    Applications have started using cloud components and services extensively so it is usual for a web application to depend on azure services and components.</p>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <h2 style="padding-left: 35%;">Health checks in ASP.NET core</h2>
+
+</head>
+
+<body>
+    <p>In this article we will understand about the health of a web application. Then we will learn about health checks
+        for a web application and also why we need them and how to implement them in asp.net core web application</p>
+
+    <p>A web application or a web api generally uses database for persistence. The database operations involving complex
+        queries take more time to complete.
+        It is common to use caching mechanism to improve performance of the application.
+        Most of the applications are moving towards micro-service architecture, it is often the case for an application
+        to depend on other application or a service.
+        Applications have started using cloud components and services extensively so it is usual for a web application
+        to depend on azure services and components.</p>
 
     <p>As shown in the below diagram, application uses or depends on many external components</p>
 
     <div style="vertical-align: middle; padding-left: 20%;">
         <img src="./Images/HealthCheck/ApplicationDependency.png">
     </div>
-    
-<h4>When do we say that an application is healthy?</h4>
-<p>Application being up and running is not sufficient to say that an application is healthy. 
-    For the application to perform all its operations, it should be able to access all its external resources. 
-    So for the application to be called as healthy, all its external dependencies should be up and running and should be accessible to the application.</p>
 
-<h4> What do we mean by health checks for an application</h4>
-<p>Health checks not only involve checking whether the application is up and running but also includes to check whether all its external dependencies are up and running and they are accessible.
-    So even when the application is up and running cannot be called healthy if it is not able to access the database, or the cloud component or any other external dependent resource.
-</p>
+    <h4>When do we say that an application is healthy?</h4>
+    <p>Application being up and running is not sufficient to say that an application is healthy.
+        For the application to perform all its operations, it should be able to access all its external resources.
+        So for the application to be called as healthy, all its external dependencies should be up and running and
+        should be accessible to the application.</p>
 
-<h4> Health checks in ASP.NET core</h4>
+    <h4> What do we mean by health checks for an application</h4>
+    <p>Health checks not only involve checking whether the application is up and running but also includes to check
+        whether all its external dependencies are up and running and they are accessible.
+        So even when the application is up and running cannot be called healthy if it is not able to access the
+        database, or the cloud component or any other external dependent resource.
+    </p>
 
-<p>ASP.NET core offers health checks middleware and various libraries for checking health of different resources.
-    The first step in health check is to see whether the app is up and running. It is also called <i>liveness</i> check.
-    It is effortless to add a liveness check for an asp.net core application.
- </p>
+    <h4> Health checks in ASP.NET core</h4>
 
- <p>Let's add a liveness check for an asp.net core web api application.
+    <p>ASP.NET core offers health checks middleware and various libraries for checking health of different resources.
+        The first step in health check is to see whether the app is up and running. It is also called <i>liveness</i>
+        check.
+        It is effortless to add a liveness check for an asp.net core application.
+    </p>
+
+    <p>Let's add a liveness check for an asp.net core web api application.
     <ol>
         <li>
-             Create an asp.net core web api application.
+            Create an asp.net core web api application.
             <p>
-                <ul>
-                    <li style="padding-bottom: 1%;">Open a new terminal in visual studio code</li>
-                    <img style="padding-bottom: 1%;" width="600" height="250" src="./Images/HealthCheck/NewTerminal.png">
-                    <li style="padding-bottom: 1%;">Navigate to the desired directory.</li>                    
-                    <li style="padding-bottom: 1%;">Run the command "<i><b>dotnet new webapi</b></i>" to create the web api application</li>
-                    <img style="padding-bottom: 1%;" width="500" height="200" src="./Images/HealthCheck/CreateWebAPI_App.png">
-                </ul>
+            <ul>
+                <li style="padding-bottom: 1%;">Open a new terminal in visual studio code</li>
+                <img style="padding-bottom: 1%;" width="600" height="250" src="./Images/HealthCheck/NewTerminal.png">
+                <li style="padding-bottom: 1%;">Navigate to the desired directory.</li>
+                <li style="padding-bottom: 1%;">Run the command "<i><b>dotnet new webapi</b></i>" to create the web api
+                    application</li>
+                <img style="padding-bottom: 1%;" width="500" height="200"
+                    src="./Images/HealthCheck/CreateWebAPI_App.png">
+            </ul>
             </p>
         </li>
         <li>
             Register health check service. Add the below highlighted line of code to Program.cs file
             <p>
-                <img style="padding-bottom: 1%;" width="600" height="300" src="./Images/HealthCheck/RegisterHealthCheck.png">
+                <img style="padding-bottom: 1%;" width="600" height="300"
+                    src="./Images/HealthCheck/RegisterHealthCheck.png">
             </p>
         </li>
         <li>
             Create a health check end point. Add the below highlighted line of code to Program.cs file
             <p>
-                <img style="padding-bottom: 1%;" width="600" height="300" src="./Images/HealthCheck/MapHealthCheck.png"> 
+                <img style="padding-bottom: 1%;" width="600" height="300" src="./Images/HealthCheck/MapHealthCheck.png">
             </p>
         </li>
         <li>
             Build the code using the command "<i><b>dotnet build</b></i>"
             <p>
-                <img style="padding-bottom: 1%;" width="600" height="200" src="./Images/HealthCheck/dotnetbuild.png"> 
+                <img style="padding-bottom: 1%;" width="600" height="200" src="./Images/HealthCheck/dotnetbuild.png">
             </p>
         </li>
         <li>
-            Run the code using the command "<i><b>dotnet run</b></i>". The application URL where the application is listening will be displayed in the log as shown below.
+            Run the code using the command "<i><b>dotnet run</b></i>". The application URL where the application is
+            listening will be displayed in the log as shown below.
             <p>
-                <img style="padding-bottom: 1%;" width="600" height="200" src="./Images/HealthCheck/dotnetrun.png"> 
+                <img style="padding-bottom: 1%;" width="600" height="200" src="./Images/HealthCheck/dotnetrun.png">
             </p>
         </li>
         <li>
             Launch the browser and navigate to the health check end point
             <p>
-                <img style="padding-bottom: 1%;" width="600" height="200" src="./Images/HealthCheck/HealthCheckEndPoint.png"> 
+                <img style="padding-bottom: 1%;" width="600" height="200"
+                    src="./Images/HealthCheck/HealthCheckEndPoint.png">
             </p>
         </li>
     </ol>
     <p style="margin-bottom:5%;">
-        The health check end point returned "Healthy" saying that the application is up and running and ready to take up requests.        
-        In this article we have discussed about health check of an application. We have seen how easy it is to implement 
-        liveness check for an asp.net core web application. In the next article we will discuss about how to check if all the external dependencies of the application are up and running.
-        Here is the link to the github repository: <a href="https://github.com/Pramod2392/HealthChecks">HealthCheckRepo</a>       
+        The health check end point returned "Healthy" saying that the application is up and running and ready to take up
+        requests.
+        In this article we have discussed about health check of an application. We have seen how easy it is to implement
+        liveness check for an asp.net core web application. In the next article we will discuss about how to check if
+        all the external dependencies of the application are up and running.
+        Here is the link to the github repository: <a
+            href="https://github.com/Pramod2392/HealthChecks">HealthCheckRepo</a>
     </p>
- </p>
+    </p>
+
+</body>
+
+<style>
+    p {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    h2 {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    h4 {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    li {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+</style>
+
+</html>
