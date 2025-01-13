@@ -1,88 +1,115 @@
-<h1>Book Manager Application</h1>
-<p>
-    <b>Book Manager Application</b> 
-    is a web application to manage purchased books.This app helps to keep track of books that we have purchased. 
-    It has search feature to check if you have already purchased a book with the given title. 
-    It is a web application built using .NET 8 Razor pages application and 
-    a .NET Web API at the backend which interacts with MSSQL db and Azure blob storage.
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Book Manager Application</title>
+    </head>
+    <body>
+        
+        <style>
+            img {
+                width: 100%;       /* Image fills the width of its container */
+                height: auto;      /* Maintains the aspect ratio */
+                max-width: 400px;  /* Optional: Sets a maximum width for large screens */
+                max-height: 600px;
+                border-radius: 8px; /* Optional: Adds rounded corners */
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow */
+            }
+
+        </style>
+
+        <h1>Book Manager Application</h1>
+        <p>
+            <b>Book Manager Application</b>
+            is a web application to manage purchased books.This app helps to keep track of books that we have purchased.
+            It has search feature to check if you have already purchased a book with the given title.
+        </p>
     
-
-</p>
-
-<h3>Technologies used are listed below</h3>
-<ul>
-    <li>C# (.NET8)</li>
-    <li>Razor pages application</li>
-    <li>.NET Web API</li>
-    <li>Azure ADB2C</li>
-    <li>Microsoft SQL DB</li>
-</ul>
-
-<h3>Features supported are listed below</h3>
-<ul>
-    <li>User registration and sign-in</li>
-    <li>Add new book by scanning the ISBN</li>
-    <li>Add new book by providing all the details manually</li>
-    <li>List all the purchased books</li>
-    <li>Search book by title</li>
-</ul>
-
-<p> <b>Application URL:</b> <a target="_blank" href="https://managebookswebappui-dydfgyc9avg3hkhk.southeastasia-01.azurewebsites.net/">Book Manager App</a>
-
-    <br/>
-    The application is using the free version of Azure SQL DB, so if the DB has not been accessed for a while, it would not be available.
-    Once we try to login, we access the db and it will take a while to come up, so we will see an exception in this case.
-    I request you to please re-try after 30s and it would be up and you will be able to login.
-
-
-</p>
-
-<p><b>Application Demo: </b> <a target="_blank" href="https://www.youtube.com/watch?v=KZziG7HNjz8&t=6s">BookManagerAppDemo</a></p>
-
-<h3>Screenshots of the application</h3>
-
-<ul>
-    <li>Sign-up screen</li>
-    <img src="../Images/BookManager/sign-up.jpg" height="70%" alt="sign-up screen"/>
-
-    <br/>
-    <br/>        
-
-    <li>Sign-in screen</li>
-    <img src="../Images/BookManager/sign-in.jpg" height="70%" alt="sign-in screen"/>
-
-    <br/>
-    <br/>
-
-    <li>Landing screen</li>
-    <img src="../Images/BookManager/Landing.jpg" height="70%" alt="landing screen"/>
-
-    <br/>
-    <br/>
-
-    <li>Scan ISBN screen</li>
-    <img src="../Images/BookManager/Scan.jpg" height="70%" alt="Scan ISBN screen"/>
-
-    <br/>
-    <br/>
-
-    <li>Add New Book screen</li>
-    <img src="../Images/BookManager/AddBook.jpg" height="70%" alt="Add new book"/>
-
-    <br/>
-    <br/>
-
-    <li>Index page listing all the books in the personal library</li>
-    <img src="../Images/BookManager/Landing2.jpg" height="70%" alt="Index page listing all the books in the personal library"/>
-
-    <br/>
-    <br/>
-
-    <li>Add Book manually screen</li>
-    <img src="../Images/BookManager/AddBookManually.jpg" height="70%" alt="Add book manually screen"/>
-
-</ul>
-
+        <h3>Technologies used</h3>
+        <ul>
+            <li>C# (.NET8)</li>
+            <li>Razor pages application</li>
+            <li>.NET Web API</li>
+            <li>Azure ADB2C</li>
+            <li>Microsoft SQL DB</li>
+        </ul>
+    
+        <h3>Features supported</h3>
+        <ul>
+            <li>User registration and sign-in</li>
+            <li>Add new book by scanning the ISBN</li>
+            <li>Add new book by providing all the details manually</li>
+            <li>List all the purchased books</li>
+            <li>Search book by title</li>
+        </ul>
+    
+        <p> <b>Application URL:</b> <a target="_blank"
+                href="https://managebookswebappui-dydfgyc9avg3hkhk.southeastasia-01.azurewebsites.net/">Book Manager App</a>
+    
+            <br />
+        </p>
+    
+        <p><b>Application Demo: </b> <a target="_blank"
+                href="https://www.youtube.com/watch?v=KZziG7HNjz8&t=6s">BookManagerAppDemo</a></p>
+    
+        <h3>Screenshots of the application</h3>
+    
+        <ul>
+            <li>Sign-up screen</li>
+            <img src="../Images/BookManager/sign-up.jpg" alt="sign-up screen" />
+    
+            <br />
+            <br />
+    
+            <li>Sign-in screen</li>
+            <img src="../Images/BookManager/sign-in.jpg" alt="sign-in screen" />
+    
+            <br />
+            <br />
+    
+            <li>Landing screen</li>
+            <img src="../Images/BookManager/Landing.jpg" alt="landing screen" />
+    
+            <br />
+            <br />
+    
+            <li>Scan ISBN screen</li>
+            <img src="../Images/BookManager/Scan.jpg" alt="Scan ISBN screen" />
+    
+            <br />
+            <br />
+    
+            <li>Add New Book screen</li>
+            <img src="../Images/BookManager/AddBook.jpg" alt="Add new book" />
+    
+            <br />
+            <br />
+    
+            <li>Index page listing all the books in the personal library</li>
+            <img src="../Images/BookManager/Landing2.jpg"
+                alt="Index page listing all the books in the personal library" />
+    
+            <br />
+            <br />
+    
+            <li>Add Book manually screen</li>
+            <img src="../Images/BookManager/AddBookManually.jpg" alt="Add book manually screen" />
+    
+        </ul>
+    
+        <br />
+        <br />
+    
+        <p>
+            <b>Note:</b>
+            <br />
+            The application is using the free version of Azure SQL DB, so if the DB has not been accessed for a while, it
+            would not be available.
+            Once we try to login, we access the db and it will take a while to come up, so we will see an exception in this
+            case.
+            I request you to please re-try after 30s and it would be up and you will be able to login.
+        </p>
+    </body>
+</html>
 
 
 
