@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Azure AD B2C Auth flow</title>
+    </head>
+
+    <body style="background-color: white;">
+
+        <style>
+            img {
+                width: 100%;       /* Image fills the width of its container */
+                height: auto;      /* Maintains the aspect ratio */
+                /*max-width: 400px; */  /* Optional: Sets a maximum width for large screens */
+                /* max-height: 600px; */
+                border-radius: 8px; /* Optional: Adds rounded corners */
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow */
+            }
+
+            body {
+                font-size: 16px;
+                line-height: 1.6;
+                padding: 20px;
+            }
+
+        </style>
+        
+        
+        <h1 style="text-align: center;">Azure AD B2C</h1>
+
+        <p>
+            <b>Azure AD B2C (Azure Active Directory Business to Consumer)</b> 
+            is a cloud-based identity and access management solution that enables applications to authenticate 
+            and authorize users through customizable workflows.
+        </p>
+
+        <h2>Key Concepts</h2>
+        <ul>
+            <li>Any application can delegate its authentication and authorization flow to Azure AD B2C. </li>
+            <li>It involves creating an Azure AD B2C resource (tenant) specific to your application in Azure portal. This would create a unique identifier which is called as tenant id. </li>
+            <li>Many applications can be registered within a single Azure AD B2C resource. Each application registered will have its unique identifiers like client-id, client-secret. 
+                Re-direct URL needs to configured for each application. </li>
+            <li>Workflows needs to be created for the registered application. Many workflows are supported including sign-up, sign-in, forgot-password, update-profile etc. </li>
+            <li>Application needs to be configured with all the details including tenant-id, client-id, client-secret, workflow profiles etc., in the configuration file.</li>
+            <li>Application should be configured to use “OpenIdConnect” schema for the authentication. </li>
+        </ul>
+
+        <h2>Authentication flow with Azure AD B2C </h2>
+
+        <ul>
+            <li>When a user clicks on the application URL, application checks the request to see if it is authenticated.</li>
+            <li>If the request is not authenticated, based on the application configuration, the user will be re-directed to Azure AD B2C login page. </li>
+                <p>This involves two steps</p>
+                <ol>
+                    <li>Application will initiate the authentication by making an api call by passing the application details like tenant-id, tenant-name, client-id, client-secret etc.  </li>
+                    <li>Azure AD B2C validates the credentials (tenant-id, tenant-name, client-id, client-secret, workflow). If the details are correct, then the user will be re-directed to Azure AD B2C login screen. 
+                        Otherwise, an error would be displayed to the user. </li>                        
+                </ol>
+
+            <li>User has to enter the credentials and click on sign-in. A user authentication request which includes user-id, password, client-id, scope will be sent to Azure AD B2C. </li>
+            <li>Azure AD B2C validates the credentials against the stored credentials within the B2C directory within the registered application. 
+                If the validation is successful, Azure AD B2C constructs a token </li>
+            <li>Tokens are populated with User Id, Name, Email Address, Roles or groups, custom-attributes. </li>
+            <li>Upon successful authentication, the user will be redirected back to the initial requested application URL along with the token. </li>
+            <li>Application validates the token for token signature, issuer and expiry. Once the token is validated, the application considers the user as authenticated. </li>
+
+        </ul>
+
+        <h2>Azure AD B2C Authentication flow diagram</h2>
+
+        <img src="../../Images/InterviewPreparation/AzureADB2C/Auth Flow.drawio.png" alt="Auth flow diagram"/>
+
+
+    </body>
